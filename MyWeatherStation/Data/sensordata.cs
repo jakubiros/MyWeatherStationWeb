@@ -6,6 +6,8 @@
 
         public string temperature { get; set; }
 
+        public string pressure { get; set; }
+
         public string humidity { get; set; }
 
         public string temperature_bmp { get; set; }
