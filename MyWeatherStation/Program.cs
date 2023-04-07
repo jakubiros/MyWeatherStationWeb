@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MyWeatherStation.Data;
+
 namespace MyWeatherStation
 {
     public class Program
@@ -7,6 +10,7 @@ namespace MyWeatherStation
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<MyDbContext>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

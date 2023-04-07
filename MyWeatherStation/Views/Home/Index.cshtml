@@ -1,8 +1,30 @@
-﻿@{
+﻿@model List<MyWeatherStation.Data.sensordata>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Odczyty</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Temperatura</th>
+            <th>Wilgotność</th>
+            <th>Temperatura 2</th>
+            <th>Czas odczytu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.temperature</td>
+                <td>@item.humidity</td>
+                <td>@item.temperature_bmp</td>
+                <td>@item.reading_time</td>
+            </tr>
+        }
+    </tbody>
+</table>
