@@ -3,9 +3,44 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Odczyty</h2>
+<h2>Aktualne odczyty</h2>
 
-<table class="table">
+<div class="temp1">
+    <div class="temp1_box">
+        <p class="temp1_value">@Model[Model.Count-1].temperature</p>
+        <p class="celsius">℃</p>
+    </div>
+</div>
+
+<div class="hum">
+    <div class="hum_box">
+        <p class="hum_value">@Model[Model.Count-1].humidity</p>
+        <p class="percent">%</p>
+    </div>
+</div>
+
+<div class="pressure">
+    <div class="pressure_box">
+        <p class="pressure_value">@Math.Round(((double.Parse(Model[Model.Count-1].pressure.Replace(".", ","))*100) / Math.Pow((1 - 324.0 / 44330), 5.255) / 100),2)</p>
+        <p class="hpa">hPa</p>
+    </div>
+</div>
+
+<div class="temp2">
+    <div class="temp2_box">
+        <p class="temp2_value">@Model[Model.Count-1].temperature_bmp</p>
+        <p class="celsius2">℃</p>
+    </div>
+</div>
+
+<div class="reading_time">
+    <div class="reading_time_box">
+        <p class="reading_time_value">@Model[Model.Count-1].reading_time</p>
+    </div>
+</div>
+
+
+@*<table class="table">
     <thead>
         <tr>
             <th>ID</th>
@@ -23,10 +58,11 @@
                 <td>@item.id</td>
                 <td>@item.temperature</td>
                 <td>@item.humidity</td>
-                <td>@item.pressure</td>
+                <td>@Math.Round(((double.Parse(@item.pressure.Replace(".", ","))*100) / Math.Pow((1 - 324.0 / 44330), 5.255) / 100),2)</td>
                 <td>@item.temperature_bmp</td>
                 <td>@item.reading_time</td>
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
